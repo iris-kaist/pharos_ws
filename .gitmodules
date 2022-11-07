@@ -15,5 +15,7 @@
 	url = git@github.com:iris-kaist/pharos_perception.git
 [submodule "src/pharos_planning"]
 	path = src/pharos_planning
-	url = git@github.com:4336/pharos_planning.git
+	url = git@github.com:iris-kaist/pharos_planning.git
 [submodule "src/pharos_tele"]
+	path = src/pharos_tele
+	url = git@github.com:4336/pharos_tele.git
