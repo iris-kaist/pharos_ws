@@ -12,3 +12,8 @@ git submodule add [깃 url] [경로]
 ```bash
 git submodule update --init --recursive
 ```
+서브모듈을 삭제할 땐 
+```bash
+git rm -f [삭제할 모듈 경로]
+```
+명령어 실행 후 .git/modules/ 경로의 파일도 같이 지워줘야 이후 같은 이름의 서브모듈 추가 시 오류가 나지 않음
