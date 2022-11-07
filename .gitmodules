@@ -1,3 +1,4 @@
+# pharos sources
 [submodule "pharos"]
 	path = src/pharos
 	url = git@github.com:iris-kaist/pharos.git
@@ -19,3 +20,7 @@
 [submodule "pharos_tele"]
 	path = src/pharos_tele
 	url = git@github.com:4336/pharos_tele.git
+# external sources
+[submodule "src/external_source/carla_ros_bridge"]
+	path = src/external_source/carla_ros_bridge
+	url = git@github.com:carla-simulator/ros-bridge.git
