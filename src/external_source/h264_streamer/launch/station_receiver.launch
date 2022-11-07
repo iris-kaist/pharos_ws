@@ -1,0 +1,60 @@
+<launch>
+	<!-- node setup -->
+	<arg name="pub" default="true" />
+	<arg name="udp" default="true" />
+	<arg name="server" default="false" />
+
+	<arg name="width" default="1920" />
+	<arg name="side_width" default="1408" />
+	<arg name="height" default="540" />
+
+	<arg name="port" default="3800" />
+	<arg name="host" default="192.168.2.201" />
+	<arg name="pub_topic" default="image_tele/h264" />
+
+
+	<group ns="front_cam">
+		<node name="h264_receiver" pkg="h264_streamer" type="testReceiver" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="port" value="$(arg port)0" />
+			<param name="host" value="$(arg host)" />
+			<param name="pub_topic" value="$(arg pub_topic)" />
+			<param name="pub_frame_id" value="front_cam" />
+		</node>
+	</group>
+
+	<arg name="side" default="false" />
+	
+	<group if="$(arg side)" ns="left_cam">
+		<node name="h264_receiver" pkg="h264_streamer" type="testReceiver" output="log">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg side_width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="port" value="$(arg port)1" />
+			<param name="host" value="$(arg host)" />
+			<param name="pub_topic" value="$(arg pub_topic)" />
+			<param name="pub_frame_id" value="left_cam" />
+		</node>
+	</group>
+
+	<group if="$(arg side)" ns="right_cam">
+		<node name="h264_receiver" pkg="h264_streamer" type="testReceiver" output="log">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg side_width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="port" value="$(arg port)2" />
+			<param name="host" value="$(arg host)" />
+			<param name="pub_topic" value="$(arg pub_topic)" />
+			<param name="pub_frame_id" value="right_cam" />
+		</node>
+	</group>
+
+</launch>

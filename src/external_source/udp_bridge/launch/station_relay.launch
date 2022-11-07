@@ -1,0 +1,6 @@
+<launch>
+    <arg name="delay" default="0.0"/>
+    <node if="$(eval arg('delay') == 0)" pkg="topic_tools" type="relay" name="rover_data1" args="/rover/data1 /CAN_Gateway"/>
+    <node pkg="topic_tools" type="relay" name="rover_data2" args="/rover/data2 /front_cam/camera_info"/>
+</launch>
+

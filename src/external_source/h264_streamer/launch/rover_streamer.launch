@@ -1,0 +1,70 @@
+<launch>
+	<!-- node setup -->
+	<arg name="pub" default="true" />
+	<arg name="udp" default="true" />
+	<arg name="server" default="true" />
+
+	<!-- image setup -->
+	<arg name="width" default="1920" />
+	<arg name="side_width" default="1408" />
+	<arg name="height" default="540" />
+
+	<arg name="quality" default="35" />
+	<arg name="fps_num" default="30" />
+	<arg name="fps_den" default="1" />
+
+	<!-- network setup -->
+	<arg name="port" default="3800" />
+	<arg name="host" default="127.0.0.1" />
+	<arg name="sub_topic" default="image_tele" />
+
+	<group ns="front_cam">
+		<node name="h264_streamer" pkg="h264_streamer" type="testStreamer" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="quality" value="$(arg quality)" />
+			<param name="fps_num" value="$(arg fps_num)" />
+			<param name="fps_den" value="$(arg fps_den)" />
+			<param name="port" value="$(arg port)0" />
+			<param name="host" value="$(arg host)" />
+			<param name="sub_topic" value="$(arg sub_topic)" />
+		</node>
+	</group>
+
+	<arg name="side" default="false" />
+
+	<group if="$(arg side)" ns="left_cam">
+		<node name="h264_streamer" pkg="h264_streamer" type="testStreamer" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg side_width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="quality" value="$(arg quality)" />
+			<param name="fps_num" value="$(arg fps_num)" />
+			<param name="fps_den" value="$(arg fps_den)" />
+			<param name="port" value="$(arg port)1" />
+			<param name="host" value="$(arg host)" />
+			<param name="sub_topic" value="/left_cam/$(arg sub_topic)" />
+		</node>
+	</group>
+
+	<group if="$(arg side)" ns="right_cam">
+		<node name="h264_streamer" pkg="h264_streamer" type="testStreamer" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg side_width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="quality" value="$(arg quality)" />
+			<param name="fps_num" value="$(arg fps_num)" />
+			<param name="fps_den" value="$(arg fps_den)" />
+			<param name="port" value="$(arg port)2" />
+			<param name="host" value="$(arg host)" />
+			<param name="sub_topic" value="/right_cam/$(arg sub_topic)" />
+		</node>
+	</group>
+</launch>

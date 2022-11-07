@@ -1,0 +1,32 @@
+<launch>
+  <arg name="delay" default="0.0"/>
+  <arg name="prefix" default=""/>
+  <param name="/station/delay" value="$(arg delay)"/>
+  <node pkg="udp_bridge" type="udp_bridge_node" name="sender_bridge" ns="station">
+    <rosparam>
+      port: 2200
+      <!-- maxPacketSize: 25 -->
+      remotes:
+        receiver:
+          host: 192.168.2.201
+          port: 2201
+          topics:
+             data1: /master/interface
+             data2: /CAN_Gateway -> /ping/CAN_Gateway(@rover)
+    </rosparam>
+  </node>
+
+  <node pkg="topic_tools" type="relay" name="station_data1" args="/master/interface /station/data1"/>
+  <node pkg="topic_tools" type="relay" name="station_data2" args="/CAN_Gateway /station/data2"/>
+
+
+  <node if="$(eval arg('delay') == 0)" pkg="topic_tools" type="relay" name="rover_data1" args="/rover/data1 /CAN_Gateway" launch-prefix="bash -c 'sleep 2; $0 $@' " />
+  <node pkg="topic_tools" type="relay" name="rover_data2" args="/rover/data2 /front_cam/camera_info" launch-prefix="bash -c 'sleep 2; $0 $@' " />
+
+
+  <include if="$(eval arg('delay') != 0)" file="$(find pharos_topic_relay)/launch/station.launch">
+    <arg name="delay" value="$(arg delay)" />
+    <arg name="prefix" value="$(arg prefix)" />
+  </include>
+</launch>
+

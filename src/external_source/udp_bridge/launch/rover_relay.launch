@@ -1,0 +1,5 @@
+<launch>
+    <arg name="delay" default="0.0"/>
+    <node if="$(eval arg('delay') == 0)" pkg="topic_tools" type="relay" name="station_data1" args="/station/data1 /master/interface"/>
+    <node if="$(eval arg('delay') == 0)" pkg="topic_tools" type="relay" name="station_data2" args="/station/data2 /ping/CAN_Gateway"/>
+</launch>

@@ -1,0 +1,26 @@
+image_width: 1920
+image_height: 1080
+camera_name: UC684_fisheye
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [587.58678,  -1.0251 , 965.93386,
+           0.     , 586.53948, 536.9521 ,
+           0.     ,   0.     ,   1.     ]
+distortion_model: equidistant
+distortion_coefficients:
+  rows: 1
+  cols: 4
+  data: [-0.305383, 0.923970, -0.811550, 0.066467]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1., 0., 0.,
+         0., 1., 0.,
+         0., 0., 1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [587.58678,  -1.0251 , 965.93386,   0.     ,
+           0.     , 586.53948, 536.9521 ,   0.     ,
+           0.     ,   0.     ,   1.     ,   0.     ]

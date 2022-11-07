@@ -1,0 +1,44 @@
+<launch>
+	<include file="$(find libuvc_camera)/launch/station_cam.launch"/>
+
+	<node name="image_resize" pkg="nodelet" type="nodelet" output="screen" args="standalone image_proc/resize" >
+		<param name="image" value="/station_cam/image_raw"/>
+		<param name="camera_info" value="/station_cam/camera_info"/>
+		<param name="_scale_width" value="0.5"/>
+		<param name="_scale_height" value="0.5"/>
+	</node>
+
+	<!-- node setup -->
+	<arg name="pub" default="true" />
+	<arg name="udp" default="true" />
+	<arg name="server" default="true" />
+
+	<!-- image setup -->
+	<arg name="width" default="960" />
+	<arg name="height" default="540" />
+
+	<arg name="quality" default="30" />
+	<arg name="fps_num" default="30" />
+	<arg name="fps_den" default="1" />
+
+	<!-- network setup -->
+	<arg name="port" default="3810" />
+	<arg name="host" default="127.0.0.1" />
+	<arg name="sub_topic" default="image" />
+
+	<group ns="image_proc_resize">
+		<node name="h264_streamer" pkg="h264_streamer" type="testStreamer" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="quality" value="$(arg quality)" />
+			<param name="fps_num" value="$(arg fps_num)" />
+			<param name="fps_den" value="$(arg fps_den)" />
+			<param name="port" value="$(arg port)0" />
+			<param name="host" value="$(arg host)" />
+			<param name="sub_topic" value="$(arg sub_topic)" />
+		</node>
+	</group>
+</launch>

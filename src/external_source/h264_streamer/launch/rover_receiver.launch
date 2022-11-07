@@ -1,0 +1,30 @@
+<launch>
+	<!-- node setup -->
+	<arg name="pub" default="true" />
+	<arg name="udp" default="true" />
+	<arg name="server" default="false" />
+
+	<!-- image setup -->
+	<arg name="width" default="960" />
+	<arg name="height" default="540" />
+
+	<arg name="port" default="3810" />
+	<arg name="host" default="192.168.2.200" />
+	<arg name="pub_topic" default="h264" />
+
+
+	<group ns="station_cam">
+		<node name="h264_receiver" pkg="h264_streamer" type="testReceiver" output="screen">
+			<param name="pub" value="$(arg pub)" />
+			<param name="udp" value="$(arg udp)" />
+			<param name="server" value="$(arg server)" />
+			<param name="width" value="$(arg width)" />
+			<param name="height" value="$(arg height)" />
+			<param name="port" value="$(arg port)0" />
+			<param name="host" value="$(arg host)" />
+			<param name="pub_topic" value="$(arg pub_topic)" />
+			<param name="pub_frame_id" value="station_cam" />
+		</node>
+	</group>
+
+</launch>
