@@ -1,5 +1,5 @@
 ## IRiS Autonomous System - PHAROS
-[Interactive Robotic Systems Lab](http://iris.kaist.ac.kr) @KAIST
+[Interactive Robotic Systems(IRiS) Lab](http://iris.kaist.ac.kr), KAIST
 
 ### pharos_ws
 * pharos
