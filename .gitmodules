@@ -23,4 +23,4 @@
 # external sources
 [submodule "src/external_source/carla_ros_bridge"]
 	path = src/external_source/carla_ros_bridge
-	url = git@github.com:carla-simulator/ros-bridge.git
+	url = git@github.com:4336/carla_ros_bridge.git
