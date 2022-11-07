@@ -1,21 +1,21 @@
-[submodule "src/pharos"]
+[submodule "pharos"]
 	path = src/pharos
 	url = git@github.com:iris-kaist/pharos.git
-[submodule "src/pharos_driver"]
+[submodule "pharos_driver"]
 	path = src/pharos_driver
 	url = git@github.com:iris-kaist/pharos_driver.git
-[submodule "src/pharos_localization"]
+[submodule "pharos_localization"]
 	path = src/pharos_localization
 	url = git@github.com:iris-kaist/pharos_localization.git
-[submodule "src/pharos_map"]
+[submodule "pharos_map"]
 	path = src/pharos_map
 	url = git@github.com:iris-kaist/pharos_map.git
-[submodule "src/pharos_perception"]
+[submodule "pharos_perception"]
 	path = src/pharos_perception
 	url = git@github.com:iris-kaist/pharos_perception.git
-[submodule "src/pharos_planning"]
+[submodule "pharos_planning"]
 	path = src/pharos_planning
 	url = git@github.com:iris-kaist/pharos_planning.git
-[submodule "src/pharos_tele"]
+[submodule "pharos_tele"]
 	path = src/pharos_tele
 	url = git@github.com:4336/pharos_tele.git
