@@ -24,9 +24,6 @@
 [submodule "src/external_source/carla_ros_bridge"]
 	path = src/external_source/carla_ros_bridge
 	url = git@github.com:4336/carla_ros_bridge.git
-<<<<<<< HEAD
 [submodule "src/external_source/ros-g29-force-feedback"]
 	path = src/external_source/ros-g29-force-feedback
 	url = git@github.com:kuriatsu/ros-g29-force-feedback.git
-=======
->>>>>>> 148431326e95e772eaab12ee6cbde03c55d70cd5
