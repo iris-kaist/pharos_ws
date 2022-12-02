@@ -2,7 +2,6 @@
 [submodule "pharos"]
 	path = src/pharos
 	url = git@github.com:iris-kaist/pharos.git
-	branch = master
 [submodule "pharos_driver"]
 	path = src/pharos_driver
 	url = git@github.com:iris-kaist/pharos_driver.git
